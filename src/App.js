@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './user.jpg';
 import './App.css';
 import Form from './components/Form';
 import axios from 'axios';
@@ -19,6 +19,13 @@ class App extends Component {
     });
   }
 
+  updateParent(){
+    axios.get( `/api/contacts` )
+    .then( response => {
+      this.setState({ contacts: response.data });
+    });
+  }
+
 
   onChange = updatedValue => {
     this.setState({
@@ -26,6 +33,7 @@ class App extends Component {
         ...this.state.fields,
         ...updatedValue
       }
+      // fields: Object.assign({}, this.state.fields, updatedValue)
     });
   };
 
@@ -35,17 +43,17 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">User Tracker</h1>
         </header>
         
-        <Form onChange={fields => this.onChange(fields)} />
+        <Form onChange={fields => this.onChange(fields)} onUpdate={()=>this.updateParent()} />
         
        <div className="contactWrapper"> 
         {
           this.state.contacts.map(contact => {
             return (
-              <div className="contactItem">
-              <Contact contact={contact} />
+              <div key={contact.id} className="contactItem">
+              <Contact contact={contact} onUpdate={()=>this.updateParent()}/>
               </div>
             )
           })

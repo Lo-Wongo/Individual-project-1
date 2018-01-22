@@ -5,7 +5,7 @@ import axios from 'axios';
 class Form extends Component {
     constructor(){
         super()
-        
+
     this.state = {
         firstName: '',
         lastName: '',
@@ -29,10 +29,11 @@ class Form extends Component {
         // this.props.onSubmit(this.state);
         // make axios post call to server 
         // with new user information
-
+        // console.log("this.state", this.state)
         axios.post('/api/contacts', this.state)
         .then((response) => {
             console.log(response.data);
+            this.props.onUpdate();
         })
 
         this.setState({
@@ -54,8 +55,9 @@ class Form extends Component {
 
 
     render(){
+        console.log("render state", this.state)
         return(
-            <form>
+            <form className="personalInfo">
                 <input 
                 name="firstName"
                 placeholder='First name' 
@@ -93,7 +95,8 @@ class Form extends Component {
 
                 <br />
 
-                <button onClick={(e) => this.onSubmit(e)}>Submit</button>
+                <button className="submit"
+                onClick={(e) => this.onSubmit(e)}>Submit</button>
             </form>
         );
     }

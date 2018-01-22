@@ -14,7 +14,7 @@ module.exports = {
             password: req.body.password,
         }
         contacts.push(newContact);
-        res.status(200).send('Contact Added')
+        res.status(200).send(contacts)
     },
     get: (req, res) => {
         res.status(200).send(contacts);
@@ -38,9 +38,9 @@ module.exports = {
             if (contacts[i].id === parseInt(req.params.id)) {
                 contacts.splice(i, 1);
             }
-            res.status(200).send('Contact deleted :(');
 
         }
+        res.status(200).send('Contact deleted :(');
         
     }
 

@@ -8,11 +8,11 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(34, 34, 34);
   height: 150px;
   padding: 20px;
   color: white;
-  width: 100%;
+  width: 95%;
 }
 
 .App-title {
@@ -28,6 +28,11 @@
   to { transform: rotate(360deg); }
 }
 
+.personalInfo {
+  margin: 40px;
+  background-color: blueviolet;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -38,13 +43,24 @@
 
 .contactWrapper {
   border: 1px solid black;
-  padding: 10px;
+  background-color: aqua;
+  padding: 20px;
   display: flex;
   justify-content: center;
   width: 95vw;
   margin: 50px;
+  flex-wrap: wrap;
 }
 
 .contactItem {
   margin: 10px;
+}
+
+.contact {
+  background-color: plum;
+  margin: 20px;
+}
+
+.submit {
+  width: 100px;
 }

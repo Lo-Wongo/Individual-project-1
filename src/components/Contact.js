@@ -26,6 +26,7 @@ class Contact extends Component{
           this.setState({
               contacts: response.data
           })
+          this.props.onUpdate();
           console.log('delete')
       })
 
@@ -88,8 +89,10 @@ render(){
 
                 < br />
 
-                <button onClick={() => this.put(this.state.contact.id)}>Update</button> 
-                <button onClick={() => this.delete(this.state.contact.id)}>Delete</button> 
+                <button className="update"
+                onClick={() => this.put(this.state.contact.id)}>Update</button> 
+                <button className="delete"
+                onClick={() => this.delete(this.state.contact.id)}>Delete</button> 
 
               </div>
 
