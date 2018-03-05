@@ -5,7 +5,7 @@ class Contact extends Component{
     constructor(props){
         super(props)
 
-        this.state=props;
+        this.state = props;
         console.log(props)
 
     }
@@ -31,6 +31,7 @@ class Contact extends Component{
       })
 
   }
+  
   onUpdateFirstName (value){
     let contact = Object.assign({}, this.state.contact);
 

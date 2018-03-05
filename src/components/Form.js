@@ -15,7 +15,6 @@ class Form extends Component {
     };
 }
 
-
     change = e => {
         this.props.onChange({ [e.target.name]: e.target.value });
         this.setState({
@@ -51,8 +50,6 @@ class Form extends Component {
             password: '',
         })
     }
-
-
 
     render(){
         console.log("render state", this.state)
@@ -102,9 +99,5 @@ class Form extends Component {
     }
 
 }
-
-
-
-
 
 export default Form;
